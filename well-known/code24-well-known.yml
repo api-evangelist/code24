@@ -1,0 +1,104 @@
+generated: '2026-09-02'
+method: probed
+source: live HTTP probes of every reachable CODE24 host, 2026-09-02
+note: >-
+  Every named /.well-known/ path was probed on every CODE24 host that resolves. Nothing is served.
+  www.code24.nl is a Squarespace site that answers 404 with the site's HTML shell for unknown paths
+  (and a small JSON body, {"message":"security.txt not found"}, specifically for
+  /.well-known/security.txt). blog.code24.nl is HubSpot and answers 404 with its own HTML shell.
+  klanten.code24.nl (the customer portal) 303-redirects every path to /login, so nothing there can
+  be read anonymously. Because no path returned a real document, NO WellKnown or SecurityTxt
+  pointer is emitted in apis.yml — this file records an absence, not a presence. CODE24 does
+  operate a Coordinated Vulnerability Disclosure programme, but publishes it as an HTML page
+  (https://www.code24.nl/kwetsbaarheid-melden) rather than as an RFC 9116 security.txt; a
+  /securitytxt page exists on the site but its body contains only the words "security.txt".
+hosts:
+- host: www.code24.nl
+  documents:
+  - path: /.well-known/security.txt
+    status: 404
+    file: null
+  - path: /.well-known/openid-configuration
+    status: 404
+    file: null
+  - path: /.well-known/oauth-authorization-server
+    status: 404
+    file: null
+  - path: /.well-known/oauth-protected-resource
+    status: 404
+    file: null
+  - path: /.well-known/api-catalog
+    status: 404
+    file: null
+  - path: /.well-known/ai-plugin.json
+    status: 404
+    file: null
+  - path: /.well-known/agent-card.json
+    status: 404
+    file: null
+  - path: /.well-known/agent.json
+    status: 404
+    file: null
+  - path: /security.txt
+    status: 404
+    file: null
+- host: blog.code24.nl
+  documents:
+  - path: /.well-known/security.txt
+    status: 404
+    file: null
+  - path: /.well-known/openid-configuration
+    status: 404
+    file: null
+  - path: /.well-known/oauth-authorization-server
+    status: 404
+    file: null
+  - path: /.well-known/oauth-protected-resource
+    status: 404
+    file: null
+  - path: /.well-known/api-catalog
+    status: 404
+    file: null
+  - path: /.well-known/ai-plugin.json
+    status: 404
+    file: null
+  - path: /.well-known/agent-card.json
+    status: 404
+    file: null
+  - path: /.well-known/agent.json
+    status: 404
+    file: null
+- host: klanten.code24.nl
+  documents:
+  - path: /.well-known/security.txt
+    status: 303
+    file: null
+  - path: /.well-known/openid-configuration
+    status: 303
+    file: null
+  - path: /.well-known/oauth-authorization-server
+    status: 303
+    file: null
+  - path: /.well-known/oauth-protected-resource
+    status: 303
+    file: null
+  - path: /.well-known/api-catalog
+    status: 303
+    file: null
+  - path: /.well-known/agent-card.json
+    status: 303
+    file: null
+  - path: /.well-known/agent.json
+    status: 303
+    file: null
+unreachable_hosts:
+- host: api.code24.nl
+  status: '<no dns>'
+- host: developer.code24.nl
+  status: '<no dns>'
+- host: docs.code24.nl
+  status: '<no dns>'
+- host: status.code24.nl
+  status: '<no dns>'
+- host: trust.code24.nl
+  status: '<no dns>'

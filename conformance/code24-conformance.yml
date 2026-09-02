@@ -1,0 +1,120 @@
+generated: '2026-09-02'
+method: searched
+source: >-
+  https://www.code24.nl/ product and policy pages (connect24, router24, cadasto, dynaform24,
+  datawarehouse24, epd-koppelingen-en-integraties, kwaliteitsbeleid) plus the certification badge
+  in the site footer, probed 2026-09-02.
+note: >-
+  CODE24 publishes NO machine-readable contract on any host it controls — no OpenAPI, Swagger,
+  GraphQL SDL, AsyncAPI, WSDL or .proto was found by STEP 0b discovery against www.code24.nl,
+  blog.code24.nl and klanten.code24.nl, and no api./developer./docs. host resolves. Every entry
+  below is therefore evidenced from CODE24's own PROSE, not from a contract. Under the 0.12.0
+  domain-standard rule these are claims to be verified against a contract when one is published,
+  not verified conformance. They are recorded because the claims are specific, product-level and
+  externally checkable (the MedMij qualification is held in a public national register), not
+  because a spec was read.
+conformance:
+- id: fhir
+  conforms: true
+  evidence: >-
+    CODE24 states Connect24 "hanteert een FHIR REST API voor het lezen én schrijven van informatie"
+    and that health data is collected and transformed with a FHIR API conform the MedMij standard.
+    No CapabilityStatement, profile set, or endpoint is published. — https://www.code24.nl/connect24
+  verified_against_contract: false
+- id: openehr
+  conforms: true
+  evidence: >-
+    Care data in mConsole, Lab24 and Opname24 is modelled and stored to the openEHR standard;
+    Dynaform24 builds low-code forms on openEHR archetypes; DataWarehouse24 transforms openEHR-format
+    data into a relational BI database. — https://www.code24.nl/dynaform24,
+    https://www.code24.nl/datawarehouse24
+  verified_against_contract: false
+- id: medmij
+  conforms: true
+  evidence: >-
+    Router24 is described as a qualified DVA (dienstverlener zorgaanbieders) under the Dutch MedMij
+    afsprakenstelsel, fulfilling both the authentication role and the resource-server role, with its
+    architecture and technical specifications audited annually. Connect24 ships an EVS MedMij
+    connector for PGO access. Third-party confirmation: the MedMij participant register
+    (https://medmij.nl/medmij-deelnemers/) and trade press reporting CODE24 receiving the MedMij
+    label for DVZA. — https://www.code24.nl/router24
+  verified_against_contract: false
+- id: zibs
+  conforms: true
+  evidence: >-
+    "De zorggegevens worden als zorginformatiebouwstenen (zibs) opgeslagen in het mConsole EPD",
+    which CODE24 gives as the reason the data can be shared with PGOs.
+    — https://www.code24.nl/epd-koppelingen-en-integraties
+  verified_against_contract: false
+- id: smart-on-openehr
+  conforms: true
+  evidence: >-
+    The Cadasto platform CODE24 resells advertises a "SMART connector" — "SMART on openEHR" — for
+    attaching applications via the openEHR API. NOTE: Cadasto is a third-party open data platform
+    for which CODE24 is a Value Added Reseller, not a CODE24 product; this row describes a platform
+    CODE24 implements, not a contract CODE24 publishes. — https://www.code24.nl/cadasto
+  verified_against_contract: false
+- id: oauth2
+  conforms: true
+  evidence: >-
+    Implied by the MedMij DVA role — Router24 performs the MedMij authentication and resource-server
+    roles, which the afsprakenstelsel defines on OAuth 2.0. CODE24 publishes no OAuth metadata
+    document; /.well-known/oauth-authorization-server returned 404 on every host probed.
+  verified_against_contract: false
+- id: hl7v2
+  conforms: unknown
+  evidence: >-
+    HL7 is named on the Lab24 and over-ons pages in passing; CODE24 does not state which HL7 version
+    or message types Lab24 exchanges, so this is recorded as unresolved rather than asserted.
+  verified_against_contract: false
+- id: rfc9457
+  conforms: unknown
+  evidence: No public contract or error reference to read.
+  verified_against_contract: false
+domain_standard:
+  market: Dutch healthcare / electronic health records
+  standards_claimed:
+  - MedMij (Dutch national PGO exchange afsprakenstelsel)
+  - openEHR (archetype-based clinical data storage)
+  - zibs / zorginformatiebouwstenen (Nictiz health information building blocks)
+  - HL7 FHIR (Connect24 REST API)
+  grade: claimed-not-contract-verified
+  note: >-
+    This is exactly the case 0.12.0's domain_standard_conformance check is designed to distinguish,
+    and CODE24 sits on the wrong side of it for a reason that is fixable: the standards it speaks are
+    the right ones for its market, but no contract declares them, so a buyer cannot verify the claim
+    without a sales conversation.
+certifications:
+- name: ISO 9001
+  status: certified
+  evidence: >-
+    "Jaarlijks toetst een externe auditor of ons kwaliteitsmanagementsysteem in overeenstemming is
+    met de ISO 9001, waardoor we met het uitgegeven certificaat aantoonbaar voldoen aan deze
+    kwaliteitsnorm." — https://www.code24.nl/kwaliteitsbeleid
+- name: ISO/IEC 27001
+  status: claimed
+  evidence: >-
+    Named in the certification badge carried in the site footer on every page (alt text:
+    "Certificeringen CODE24: DigiD, MedMij, ISO 27001, NEN 7510, ISO 9001"). No certificate,
+    scope statement or certificate number is published. — https://www.code24.nl/home
+- name: NEN 7510
+  status: claimed
+  evidence: >-
+    Named in the same site-footer certification badge. NEN 7510 is the Dutch information-security
+    standard for healthcare. No certificate or scope statement is published.
+- name: DigiD
+  status: claimed
+  evidence: >-
+    Named in the same site-footer certification badge; the DigiD assessment (ICT-beveiligingsassessment)
+    is the Dutch government identity-assurance audit. No assessment report is published.
+- name: MedMij
+  status: qualified
+  evidence: >-
+    Router24 qualified as a MedMij DVA, audited annually. Externally checkable in the MedMij
+    participant register. — https://www.code24.nl/router24, https://medmij.nl/medmij-deelnemers/
+regulatory_context:
+  regime: healthcare
+  jurisdiction: Netherlands / EU
+  notes: >-
+    GDPR/AVG named explicitly in the privacy statement; Wegiz and MedMij are the applicable Dutch
+    health-data-exchange regimes for the Connect24/Router24 surface.

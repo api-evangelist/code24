@@ -1,0 +1,26 @@
+generated: '2026-09-02'
+method: searched
+source: >-
+  Full crawl of the www.code24.nl sitemap (28 URLs) plus /contact, /diensten and /oplossingen,
+  2026-09-02. No pricing, plans, tariff or "prijzen" page exists on any CODE24 host.
+plan_count: 0
+plans: []
+pricing_model: contact-sales
+currency: null
+note: >-
+  CODE24 publishes no prices of any kind. Every product page ends in a "neem contact met ons op" /
+  "vraag informatie aan" call to action, and services (consultancy, implementation, e-learning,
+  24/7 on-call support subscription) are quoted per engagement — "we je een passend voorstel voor
+  onze inzet kunnen geven". This is an enterprise healthcare EPD sold on multi-year contracts to
+  Dutch care and GGZ institutions, so the absence of a price list is normal for the category; it
+  is recorded as an honest zero, not as an omission by this pipeline.
+evidence:
+- url: https://www.code24.nl/sitemap.xml
+  status: 200
+  finding: 28 URLs, none of them a pricing page.
+- url: https://www.code24.nl/diensten
+  status: 200
+  finding: Services described, quoted per engagement, no rates.
+- url: https://www.code24.nl/contact
+  status: 200
+  finding: Company/contact details only.

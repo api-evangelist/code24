@@ -1,0 +1,69 @@
+generated: '2026-09-02'
+method: searched
+source: >-
+  https://www.code24.nl/mconsole-voor-beheerders, https://www.code24.nl/router24,
+  https://www.code24.nl/kwaliteitsbeleid, https://support.code24.nl, https://klanten.code24.nl —
+  probed 2026-09-02.
+release_cadence:
+  documented: true
+  interval: every 3 weeks
+  evidence: >-
+    "Er is iedere drie weken een nieuwe release, waarin nieuwe functionaliteiten en verbeteringen
+    beschikbaar worden gesteld." — https://www.code24.nl/mconsole-voor-beheerders
+  note: >-
+    A stated cadence, not a version scheme. CODE24 publishes no version numbers, no dated public
+    release notes and no public changelog; release notes appear to live behind the customer portal
+    (klanten.code24.nl, which 303-redirects to /login).
+versioning:
+  scheme: null
+  documented: false
+  note: No public versioning policy, no version identifiers in any public material.
+deprecation:
+  policy_published: false
+  sunset_header: unknown
+  deprecation_header: unknown
+  note: >-
+    No deprecation or sunset policy found on any public page. No Deprecation pointer is emitted in
+    apis.yml, because none is published.
+status_page:
+  published: false
+  probed:
+  - url: https://status.code24.nl/
+    status: '<no dns>'
+  - url: https://statuspage.code24.nl/
+    status: '<no dns>'
+  note: >-
+    No status page resolves on any code24.nl subdomain. Incident and availability communication
+    appears to run through the customer portal and the Jira Service Desk at support.code24.nl,
+    both of which require a login. No StatusPage pointer is emitted, because none is published.
+sla:
+  published: false
+  note: >-
+    CODE24 sells a 24/7 on-call support subscription and runs an ISO 9001 quality-management
+    system with KPIs on primary business processes and annual external audit, but publishes no
+    uptime target, credit schedule or SLA document.
+support:
+  channels:
+  - type: service-desk
+    url: https://support.code24.nl
+    access: login-required
+    note: Atlassian Jira Service Management customer portal (redirects to support.desk.code24.nl).
+  - type: customer-portal
+    url: https://klanten.code24.nl
+    access: login-required
+  - type: phone
+    value: '+31 72 20 40 300'
+    hours: Mon-Fri 08:30-17:00
+  - type: e-learning
+    url: https://code24.learnamp.com
+    access: login-required
+audits:
+- name: MedMij DVA qualification
+  cadence: annual
+  evidence: >-
+    "De architectuur en technische specificaties van Router24 worden jaarlijks geaudit, om te
+    toetsen of we de rol op de juiste manier vervullen." — https://www.code24.nl/router24
+- name: ISO 9001 quality management system
+  cadence: annual
+  evidence: https://www.code24.nl/kwaliteitsbeleid
+deprecated_operations: []

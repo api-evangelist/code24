@@ -1,0 +1,23 @@
+generated: '2026-09-02'
+method: searched
+source: >-
+  Full crawl of the www.code24.nl sitemap plus STEP 0b contract discovery against www.code24.nl,
+  blog.code24.nl and klanten.code24.nl, 2026-09-02.
+limit_count: 0
+rate_limits: []
+headers: []
+exhaustion_status_code: null
+note: >-
+  No rate limits are published. There is no developer portal, no API reference and no
+  machine-readable contract on any CODE24 host, so there is nothing to read a quota, window or
+  RateLimit-* header from. The mConsole API, the Connect24 FHIR API and the Router24 MedMij DVA
+  are all provisioned per care organisation under contract; any limits would be stated in
+  documentation behind klanten.code24.nl, which 303-redirects every anonymous request to /login.
+  An honest zero, not an unchecked field.
+evidence:
+- url: https://klanten.code24.nl/
+  status: 303
+  finding: Redirects to /login; customer documentation is not anonymously readable.
+- url: https://www.code24.nl/epd-koppelingen-en-integraties
+  status: 200
+  finding: Describes that an API exists for reading and writing care data; states no limits.

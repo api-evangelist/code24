@@ -1,0 +1,27 @@
+generated: '2026-09-02'
+method: searched
+source: >-
+  Host probing of www.code24.nl, blog.code24.nl, klanten.code24.nl and the non-resolving
+  api./developer./docs. candidates, plus web search for a CODE24 MCP server, 2026-09-02.
+status: none
+deployment:
+  mode: none
+  endpoint: null
+  install: null
+  package: null
+  auth: unknown
+  verified: searched
+tools: []
+note: >-
+  CODE24 ships no MCP server, hosted or stdio, and no candidate tool list can be derived because
+  the company publishes no OpenAPI, GraphQL SDL or other machine-readable contract to derive one
+  from. No MCPServer pointer is emitted in apis.yml — this file records the absence. No endpoint
+  URL is guessed.
+evidence:
+- url: https://www.code24.nl/.well-known/ai-plugin.json
+  status: 404
+- url: https://api.code24.nl/
+  status: '<no dns>'
+- url: https://mcp.code24.nl/
+  status: not-probed
+  note: Not probed as a guess; guessing an MCP path that happens to 200 would be the worst possible artifact.

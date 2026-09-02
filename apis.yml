@@ -1,23 +1,170 @@
 aid: code24
 name: Code24
-description: 'Code24 is a company surfaced via the API Evangelist harvest backlog (source: openehr-coalition)
-  and added to the network as a stub for full-pipeline profiling.'
+description: >-
+  CODE24 B.V. is a Dutch healthcare software company in Alkmaar that builds mConsole, a modern,
+  modular electronic health record (EPD) for care and mental-health (GGZ) organisations, together
+  with a family of "24" modules — Lab24, Opname24 (admissions), CrisisMonitor24, CTB24, Connect24,
+  Router24, Dynaform24, Financieel24 and DataWarehouse24. Its architectural position is that a
+  modern EPD must be open: care data is stored in standardised form using openEHR archetypes and
+  Dutch zibs (zorginformatiebouwstenen), and every record is readable and writable through a
+  software interface (API) so other care systems can be integrated without duplicate data entry.
+  Connect24 exposes a FHIR REST API for collecting and transforming patient data to the Dutch
+  MedMij standard; Router24 is a MedMij-qualified DVA that performs the authentication and
+  resource-server roles for routing data to personal health environments (PGOs). CODE24 is also a
+  Value Added Reseller of the Cadasto openEHR open data platform. The API surface is real but
+  commercial: no developer portal, no public API reference and no machine-readable contract are
+  published on any CODE24 host.
+image: https://images.squarespace-cdn.com/content/62ac82df30de9f006ca4a9b6/66dbfa59-47b3-4354-8491-fa6de60ac444/CODE24_logo.png
 url: https://raw.githubusercontent.com/api-evangelist/code24/refs/heads/main/apis.yml
 x-type: company
 x-source: harvest:openehr-coalition
-x-tier: stub
-x-tier-reason: harvest
 specificationVersion: '0.20'
 created: '2026-09-02'
 modified: '2026-09-02'
 tags:
 - Company
-apis: []
+- Healthcare
+- Electronic Health Records
+- openEHR
+- FHIR
+- MedMij
+- Interoperability
+- Mental Health
+- Netherlands
+- Health Data
+apis:
+- aid: code24:mconsole-epd-api
+  name: mConsole EPD API
+  description: >-
+    mConsole is CODE24's modern EPD (electronic health record). CODE24 states that the record has a
+    software interface (API) with which other care systems can read and write care data back into
+    mConsole, subject to authorisation, and that care data is stored as zibs
+    (zorginformatiebouwstenen) so it can be shared with personal health environments (PGOs). The
+    integration surface is described only on the public product pages; no API reference, base URL,
+    authentication reference or machine-readable contract is published on any CODE24 host.
+  humanURL: https://www.code24.nl/epd-koppelingen-en-integraties
+  tags:
+  - EHR
+  - Integration
+  - zibs
+  - openEHR
+  properties:
+  - type: Website
+    url: https://www.code24.nl/epd-mconsole
+- aid: code24:connect24-fhir-api
+  name: Connect24 FHIR API
+  description: >-
+    Connect24 is CODE24's data-transformation service. CODE24 documents it as using a FHIR REST API
+    for reading and writing information, collecting and transforming patient health data in line
+    with the Dutch MedMij standard, with an EVS MedMij connector available for PGO access and
+    flexible mapping so it works against any source EPD. The FHIR profile set, endpoints and
+    capability statement are not published publicly.
+  humanURL: https://www.code24.nl/connect24
+  tags:
+  - FHIR
+  - MedMij
+  - Data Transformation
+  - Health Data Exchange
+- aid: code24:router24-medmij-dva
+  name: Router24 MedMij DVA
+  description: >-
+    Router24 is CODE24's DVA (dienstverlener zorgaanbieders) solution under the Dutch MedMij
+    afsprakenstelsel. CODE24 states that Router24 fulfils both the authentication role and the
+    resource-server role for sharing data with personal health environments (PGOs), and that its
+    architecture and technical specifications are audited annually against the MedMij qualification.
+    Endpoints are provisioned per care provider; no public base URL or OAuth metadata is published.
+  humanURL: https://www.code24.nl/router24
+  tags:
+  - MedMij
+  - DVA
+  - OAuth
+  - PGO
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
 - FN: APIs.json
   email: info@apis.io
 common:
+- type: DomainSecurity
+  url: security/code24-domain-security.yml
 - type: Website
   url: https://www.code24.nl/
+- type: Documentation
+  url: https://www.code24.nl/epd-koppelingen-en-integraties
+- type: Support
+  url: https://support.code24.nl
+- type: HelpCenter
+  url: https://support.code24.nl
+- type: Login
+  url: https://klanten.code24.nl
+- type: Blog
+  url: https://blog.code24.nl
+- type: GitHubOrganization
+  url: https://github.com/code24-nl
+- type: PrivacyPolicy
+  url: https://www.code24.nl/privacyverklaring
+- type: Security
+  url: https://www.code24.nl/kwetsbaarheid-melden
+- type: Contact
+  url: https://www.code24.nl/contact
+- type: FAQ
+  url: https://www.code24.nl/faq
+- type: LinkedIn
+  url: https://www.linkedin.com/company/code24/
+- type: Lifecycle
+  url: lifecycle/code24-lifecycle.yml
+- type: Conformance
+  url: conformance/code24-conformance.yml
+- type: Compliance
+  url: conformance/code24-conformance.yml
+- type: VulnerabilityDisclosure
+  url: security/code24-vulnerability-disclosure.yml
+- type: LLMsTxt
+  url: llms/code24-llms.txt
+- type: Plans
+  url: plans/code24-plans-pricing.yml
+- type: RateLimits
+  url: rate-limits/code24-rate-limits.yml
+x-api-base-finding:
+  verdict: missing
+  checked: '2026-09-02'
+  detail: >-
+    repair-api-bases.py returned `missing` for code24 and the docs pass confirms it: CODE24 names no
+    API host anywhere it publishes. www.code24.nl is a Squarespace marketing site; no api., developer.
+    or docs. subdomain of code24.nl resolves; and the mConsole API, the Connect24 FHIR API and the
+    Router24 MedMij DVA are all provisioned per care organisation, so their endpoints are
+    customer-specific rather than a single published base. baseURL is deliberately left unset on all
+    three apis[] entries rather than guessed from the marketing domain.
+  probed:
+  - url: https://api.code24.nl/
+    status: '<no dns>'
+  - url: https://developer.code24.nl/
+    status: '<no dns>'
+  - url: https://docs.code24.nl/
+    status: '<no dns>'
+  - url: https://www.code24.nl/openapi.json
+    status: 404
+x-enrichment:
+  date: '2026-09-02'
+  status: minimal
+  artifacts_added: 9
+  pass: local-v1
+x-coverage:
+  state: gated
+  reason: customer-only-docs
+  detail: >-
+    CODE24 states plainly that mConsole has a read/write API and that Connect24 is a FHIR REST API,
+    but every reference for them sits behind a customer login — klanten.code24.nl 303-redirects
+    every anonymous request to /login and support.code24.nl lands on an Atlassian Jira Service
+    Management sign-in — while www.code24.nl is a Squarespace marketing site with no developer
+    section and no api./developer./docs. subdomain resolving.
+  evidence:
+  - url: https://klanten.code24.nl/.well-known/openid-configuration
+    status: 303
+  - url: https://support.code24.nl/
+    status: 200
+  - url: https://www.code24.nl/openapi.json
+    status: 404
+  - url: https://www.code24.nl/epd-koppelingen-en-integraties
+    status: 200
+  checked: '2026-09-02'

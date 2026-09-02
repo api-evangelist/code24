@@ -1,0 +1,100 @@
+# CODE24
+
+> CODE24 B.V. is a Dutch healthcare software company in Alkmaar that builds mConsole — a modern, modular electronic health record (EPD/ECD) for care and mental-health
+> (GGZ) organisations — plus a family of "24" modules. Its architectural position is that a modern
+> EPD must be open: care data is stored in standardised form using openEHR archetypes and Dutch
+> zibs (zorginformatiebouwstenen), and every record is readable AND writable through a software
+> interface (API) so other care systems integrate without duplicate entry or duplicate logins.
+
+Provenance: generated 2026-09-02 by the API Evangelist enrichment pipeline from CODE24's own public
+pages. CODE24 does not publish an /llms.txt; https://www.code24.nl/llms.txt returned 404.
+
+## What an agent needs to know first
+
+CODE24 has a real API surface and NO public developer surface. There is no developer portal, no API
+reference, no getting-started guide, no OpenAPI/Swagger/GraphQL/AsyncAPI/WSDL document, no SDK in any
+package registry, no CLI, no sandbox, no MCP server and no A2A agent card. No api., developer. or
+docs. subdomain of code24.nl resolves. Documentation appears to sit behind klanten.code24.nl (the
+customer portal, which 303-redirects every anonymous request to /login) and support.code24.nl (an
+Atlassian Jira Service Management portal that requires sign-in). Integration is arranged
+commercially, per care organisation, through CODE24's consultants.
+
+## API surfaces (described publicly, not specified publicly)
+
+- mConsole EPD API: reads and writes care data in mConsole from other care systems, subject to
+  authorisation. Data is held as zibs so it can be exposed to personal health environments (PGOs).
+  https://www.code24.nl/epd-koppelingen-en-integraties
+- Connect24 FHIR API: a FHIR REST API for reading and writing, collecting and transforming patient
+  health data to the Dutch MedMij standard, with an EVS MedMij connector for PGO access and flexible
+  mapping so it works against any source EPD. https://www.code24.nl/connect24
+- Router24 MedMij DVA: CODE24's qualified DVA (dienstverlener zorgaanbieders) under the MedMij
+  afsprakenstelsel; performs both the authentication role and the resource-server role, and is
+  audited annually. https://www.code24.nl/router24
+- Dynaform24: low-code EPD forms built on openEHR archetypes; available as an mConsole module or
+  callable through a single sign-on (SSO) integration. https://www.code24.nl/dynaform24
+- DataWarehouse24: transforms openEHR-format mConsole data into a structured relational BI database
+  for tools such as Power BI. https://www.code24.nl/datawarehouse24
+
+## Products
+
+- mConsole — the EPD itself: https://www.code24.nl/epd-mconsole
+- Lab24 (lab requisitions and results), Opname24 (bed availability and admissions),
+  CrisisMonitor24 (crisis signalling), CTB24 (digital multidisciplinary meeting board),
+  Financieel24 (finance), Connect24, Router24, Dynaform24, DataWarehouse24
+- CareBase24 — CODE24's future-proof information architecture offering:
+  https://blog.code24.nl/een-toekomstbestendige-informatie-architectuur-met-carebase24
+- Cadasto — an openEHR open data platform / clinical data repository for which CODE24 is a Value
+  Added Reseller. NOT a CODE24 product; the openEHR API and SMART connector belong to Cadasto.
+  https://www.code24.nl/cadasto
+- Modules: Agenda24, TreatmentPlan24, Correspondence24, Diagnosis24, InfoBoard24, LifeChart24,
+  Medication24, Measurements24, Multimedia24, Notification24, Mailbox24, Report24,
+  RehabilitationPlan24, NursingPlan24
+
+## Standards CODE24 states it speaks
+
+openEHR (archetype storage), HL7 FHIR (Connect24), MedMij (qualified DVA), zibs / Nictiz health
+information building blocks, DigiD, SSO. Note these are claims made in prose on product pages; no
+contract published by CODE24 declares any of them, so none can be machine-verified today.
+
+## Certifications
+
+The site footer badge on every page reads "Certificeringen CODE24: DigiD, MedMij, ISO 27001,
+NEN 7510, ISO 9001". ISO 9001 is additionally described in text as externally audited each year
+(https://www.code24.nl/kwaliteitsbeleid). No certificate, scope statement or certificate number is
+published for any of them, and there is no trust centre.
+
+## Security
+
+- Coordinated Vulnerability Disclosure policy (Dutch, January 2023):
+  https://www.code24.nl/kwetsbaarheid-melden — report to securityofficer@code24.nl, PGP key published
+  inline, three-day response commitment, safe harbour, scope limited to domains ending in code24.nl.
+- There is no RFC 9116 security.txt: /.well-known/security.txt returns 404 on every host.
+- Domain posture (probed 2026-09-02): TLS 1.3, HSTS present, DNSSEC enabled, SPF present,
+  DMARC p=reject, no CAA records.
+
+## Links
+
+- Website: https://www.code24.nl/
+- Solutions: https://www.code24.nl/oplossingen
+- Integrations: https://www.code24.nl/epd-koppelingen-en-integraties
+- Services: https://www.code24.nl/diensten
+- FAQ: https://www.code24.nl/faq
+- Blog: https://blog.code24.nl (RSS: https://blog.code24.nl/rss.xml)
+- Customer portal (login): https://klanten.code24.nl
+- Help centre (login): https://support.code24.nl
+- Careers: https://jobs.code24.nl/
+- Privacy statement: https://www.code24.nl/privacyverklaring
+- Quality policy: https://www.code24.nl/kwaliteitsbeleid
+- Vulnerability disclosure: https://www.code24.nl/kwetsbaarheid-melden
+- GitHub organisation (no public repositories): https://github.com/code24-nl
+- LinkedIn: https://www.linkedin.com/company/code24/
+- Contact: https://www.code24.nl/contact — CODE24 B.V., Comeniusstraat 2d, 1817 MS Alkmaar,
+  Netherlands, +31 72 20 40 300, KvK 37159262
+
+## Not published (checked 2026-09-02, all misses)
+
+OpenAPI/Swagger (probed /openapi.json, /openapi.yaml, /swagger.json, /v1/openapi.json, /api-docs,
+/docs, /redoc on every reachable host), GraphQL, AsyncAPI, WSDL (?wsdl, ?singleWsdl), .proto,
+/llms.txt, /.well-known/{security.txt, openid-configuration, oauth-authorization-server,
+oauth-protected-resource, api-catalog, ai-plugin.json, agent-card.json, agent.json}, pricing page,
+status page, changelog, Postman collection, npm/PyPI/Packagist packages, MCP server, A2A agent card.
