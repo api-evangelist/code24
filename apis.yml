@@ -77,6 +77,11 @@ apis:
   tags:
   - MedMij
   - DVA
+  - Authentication
+  - PGO
+  tags_raw:
+  - MedMij
+  - DVA
   - OAuth
   - PGO
 maintainers:
