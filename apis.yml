@@ -44,6 +44,11 @@ apis:
     authentication reference or machine-readable contract is published on any CODE24 host.
   humanURL: https://www.code24.nl/epd-koppelingen-en-integraties
   tags:
+  - Electronic Health Records
+  - Integration
+  - zibs
+  - openEHR
+  tags_raw:
   - EHR
   - Integration
   - zibs
