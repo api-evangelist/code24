@@ -64,5 +64,104 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-Code24 is a company surfaced via the API Evangelist harvest backlog (source: openehr-coalition) and added to the network as a stub for full-pipeline profiling.
-- https://www.code24.nl/
+CODE24 B.V. is a Dutch healthcare software company in Alkmaar that builds mConsole, a modern, modular electronic health record (EPD) for care and mental-health (GGZ) organisations, together with a family of "24" modules — Lab24, Opname24 (admissions), CrisisMonitor24, CTB24, Connect24, Router24, Dynaform24, Financieel24 and DataWarehouse24. Its architectural position is that a modern EPD must be open: care data is stored in standardised form using openEHR archetypes and Dutch zibs (zorginformatiebouwstenen), and every record is readable and writable through a software interface (API) so other care systems can be integrated without duplicate data entry. Connect24 exposes a FHIR REST API for collecting and transforming patient data to the Dutch MedMij standard; Router24 is a MedMij-qualified DVA that performs the authentication and resource-server roles for routing data to personal health environments (PGOs). CODE24 is also a Value Added Reseller of the Cadasto openEHR open data platform. The API surface is real but commercial: no developer portal, no public API reference and no machine-readable contract are published on any CODE24 host.
+
+**Areas:** Company · Healthcare · Electronic Health Records · openEHR · FHIR · MedMij · Interoperability · Mental Health · Netherlands · Health Data
+
+## Code24 on APIs.io
+
+Everything profiled for Code24 is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/code24/](https://apis.io/providers/code24/)** — or go straight to one of the APIs or properties below.
+
+### APIs (3)
+
+- [mConsole EPD API](https://apis.io/apis/code24/mconsole-epd-api/) — mConsole is CODE24's modern EPD (electronic health record). CODE24 states that the record has a software interface (API) with which other care systems can…
+- [Connect24 FHIR API](https://apis.io/apis/code24/connect24-fhir-api/) — Connect24 is CODE24's data-transformation service. CODE24 documents it as using a FHIR REST API for reading and writing information, collecting and…
+- [Router24 MedMij DVA](https://apis.io/apis/code24/router24-medmij-dva/) — Router24 is CODE24's DVA (dienstverlener zorgaanbieders) solution under the Dutch MedMij afsprakenstelsel. CODE24 states that Router24 fulfils both the…
+
+### Published properties
+
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
+
+#### Security (2)
+
+Authentication, trust centre, and vulnerability disclosure.
+
+- [Code24 Domain Security](https://apis.io/security/code24/code24-domain-security/)
+- [Code24 Vulnerability Disclosure](https://apis.io/security/code24/code24-vulnerability-disclosure/)
+
+#### Plans and pricing (1)
+
+Published plans, tiers and prices.
+
+- [Code24 Plans Pricing](https://apis.io/plans/code24/code24-plans-pricing/)
+
+#### Rate limits (1)
+
+Published request limits.
+
+- [Code24 Rate Limits](https://apis.io/rate-limits/code24/code24-rate-limits/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
+- [Website](https://www.code24.nl/)
+- [Documentation](https://www.code24.nl/epd-koppelingen-en-integraties)
+- [Support](https://support.code24.nl)
+- [Blog](https://blog.code24.nl)
+- [Security](https://www.code24.nl/kwetsbaarheid-melden)
+- [Privacy policy](https://www.code24.nl/privacyverklaring)
+- [GitHub](https://github.com/code24-nl)
+
+## API Evangelist rating
+
+**Kin Score 21.4** — emerging · rubric 0.24.0 · scored 2026-10-17
+
+| Facet | Score |
+|---|---|
+| Discoverability | 69.6 |
+| Contract quality | 0.0 |
+| Contract governance | 18.2 |
+| Operational transparency | 13.2 |
+| Developer ergonomics | 16.7 |
+| Access clarity | 25.0 |
+
+**Agent readiness 2.5** — human-only
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | — |
+| Agentic Access | — |
+| Reversibility Documented | — |
+| MCP Server | — |
+| Auth Clarity | — |
+| Idempotency | — |
+| Error Semantics | — |
+| OpenAPI Examples | — |
+| Rate Limit Signal | documented (partial credit) |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+
+**Regulatory alignment 26.6** — Health
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/code24/](https://apis.io/providers/code24/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Code24: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/code24/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
